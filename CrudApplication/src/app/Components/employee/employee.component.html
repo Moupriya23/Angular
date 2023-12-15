@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-12">
+      <h3>Employee</h3>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered table-dark">
+      <thead>
+        <tr>
+          <td>Employee ID</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Salary</td>
+          <td>DOB</td>
+          <td>Email</td>
+          <td>Action</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let emp of employeeList">
+          <td>
+            <div *ngIf="!showEdit">{{emp.EmployeeId}} </div>
+            <div *ngIf="showEdit">
+              <input type="text" [(ngModel)]= "emp.EmployeeId" class="form-control" placeholder="Id"/>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!showEdit">{{emp.FirstName}} </div>
+            <div *ngIf="showEdit">
+              <input type="text" [(ngModel)]="emp.FirstName" class="form-control" placeholder="FirstName"/>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!showEdit">{{emp.LastName}} </div>
+            <div *ngIf="showEdit">
+              <input type="text" [(ngModel)]="emp.LastName" class="form-control" placeholder="LastName"/>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!showEdit">{{emp.Salary}} </div>
+            <div *ngIf="showEdit">
+              <input type="text" [(ngModel)]="emp.Salary" class="form-control" placeholder="Salary"/>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!showEdit">{{emp.Dob}} </div>
+            <div *ngIf="showEdit">
+              <input type="text" [(ngModel)]="emp.Dob" class="form-control" placeholder="Dob"/>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!showEdit">{{emp.Email}} </div>
+            <div *ngIf="showEdit">
+              <input type="text" [(ngModel)]="emp.Email" class="form-control" placeholder="Email" />
+            </div>
+          </td>
+          <td>
+            <button class="btn btn-primary btn-sm" *ngIf="!showEdit" (click)="EditEmp()" >Edit</button>
+            <button class="btn btn-primary btn-sm" *ngIf="showEdit" (click)="UpdateEmp()" >Update</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
